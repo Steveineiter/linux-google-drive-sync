@@ -2,9 +2,10 @@
 
 1. Install and go over https://rclone.org/drive/ aka simply the configuration.
 2. Test setup with `rclone lsd CONFIG_NAME:`
-3. Perform manual sync `rclone sync --dry-run gdrive:/ $HOME/FOLDER_NAME`
-4. Dry run if sync works: `rclone sync --dry-run gdrive:/ $HOME/FOLDER_NAME`
+3. Dry run if sync works `rclone sync --dry-run CONFIG_NAME:/ $HOME/FOLDER_NAME`
+4. Syncing content: `rclone sync  CONFIG_NAME:/ $HOME/FOLDER_NAME`
 5. Create a Systemd Service with the script of this repo.
+   - Run it firstl manually, maybe it will have an error message about caches, then run with --resync flag (see the script)
 
 - `sudo vim /etc/systemd/system/rclone-sync.service`
 - Add the following:

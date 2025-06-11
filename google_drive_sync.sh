@@ -6,4 +6,4 @@ readonly LOCAL_DESTINATION="$HOME/GoogleDrive"
 # To solve cache error:
 # rclone bisync "$RSYNC_CONFIG":/ "$LOCAL_DESTINATION" --log-file=$HOME/.config/rclone/rclone.log --verbose --resync
 
-rclone bisync "$RSYNC_CONFIG":/ "$LOCAL_DESTINATION" --log-file=$HOME/.config/rclone/rclone.log --verbose --resync
+rclone bisync "$RSYNC_CONFIG":/ "$LOCAL_DESTINATION" --log-file=$HOME/.config/rclone/rclone.log --verbose
