@@ -1,6 +1,6 @@
 # google-drive-sync
 
-1. Install and go over https://rclone.org/drive/ aka simply the configuration.
+1. Install and go over https://rclone.org/drive/ aka simply the configuration. **Recommended** to use a own client id (https://rclone.org/drive/#making-your-own-client-id) else we run into rate limits all the time. 
 2. Test setup with `rclone lsd CONFIG_NAME:`
 3. Dry run if sync works `rclone sync --dry-run CONFIG_NAME:/ $HOME/FOLDER_NAME`
 4. Syncing content: `rclone sync  CONFIG_NAME:/ $HOME/FOLDER_NAME -P`. -P for progress flag.
