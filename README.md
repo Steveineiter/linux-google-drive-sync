@@ -5,7 +5,7 @@
 3. Dry run if sync works `rclone sync --dry-run CONFIG_NAME:/ $HOME/FOLDER_NAME`
 4. Syncing content: `rclone sync  CONFIG_NAME:/ $HOME/FOLDER_NAME -P`. -P for progress flag.
 5. Move the scripts to home/USERNAME/bin and chomd +x.
-6. Add into `~/.bashrc` `alias pull="./$HOME/bin/google_drive_pull.sh" alias push="./$HOME/bin/google_drive_push.sh"`. Then `source ~/.bashrc` This is a manual approach, since its quite hard to make it work as google drive works xD
+6. Add into `~/.bashrc` `alias pulld="./$HOME/bin/google_drive_pull.sh" alias pushd="./$HOME/bin/google_drive_push.sh"`. Then `source ~/.bashrc` This is a manual approach, since its quite hard to make it work as google drive works xD
 7. In `crontab -e` add `@reboot  $HOME/bin/google_drive_startup.sh` this will sync remote onto local. Don't forget to push after a work session xD.
 
 - Use `cat $HOME/.config/rclone/rclone.log` per default to see log.
