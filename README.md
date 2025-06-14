@@ -4,55 +4,12 @@
 2. Test setup with `rclone lsd CONFIG_NAME:`
 3. Dry run if sync works `rclone sync --dry-run CONFIG_NAME:/ $HOME/FOLDER_NAME`
 4. Syncing content: `rclone sync  CONFIG_NAME:/ $HOME/FOLDER_NAME -P`. -P for progress flag.
-5. Move this script to home/USERNAME/bin
-6. Create a Systemd Service with the script of this repo.
-   - Run it firstl manually, maybe it will have an error message about caches, then run with --resync flag (see the script)
+5. Move the scripts to home/USERNAME/bin and chomd +x.
+6. Set aliases `alias pull="./$HOME/bin/google_drive_pull.sh" alias push="./$HOME/bin/google_drive_push.sh"`. Then `source ~/.bashrc` This is a manual approach, since its quite hard to make it work as google drive works xD
+7. In `crontab -e` add `@reboot  $HOME/bin/google_drive_startup.sh` this will sync remote onto local. Don't forget to push after a work session xD.
 
-- `sudo vim /etc/systemd/system/rclone-sync.service`
-- And type the following:
+- Use `cat $HOME/.config/rclone/rclone.log` per default to see log.
 
-```
-[Unit]
-Description=Rclone Sync Service
-After=network-online.target
+# TODO add filer file
 
-[Service]
-Type=simple
-ExecStart=/home/USERNAME/bin/rclone_sync.sh
-Restart=on-failure
-
-[Install]
-WantedBy=multi-user.target
-```
-
-7. Also create a timer file to run it all 10 minutes or so
-
-- `sudo vim /etc/systemd/system/rclone-sync.timer`
-
-```
-[Unit]
-Description=Run Rclone Sync Service every 10 minutes
-
-[Timer]
-OnUnitActiveSec=10min  # Run every 10 minutes
-Unit=rclone_sync.service
-
-[Install]
-WantedBy=timers.target
-```
-
-8. Reload and enable service:
-
-- Give both servies chmod +x
-
-```
-sudo systemctl daemon-reload
-sudo systemctl enable rclone-sync.timer
-sudo systemctl start rclone-sync.timer
-```
-
-- Check service status
-
-```
-systemctl list-timers --all
-```
+to speed things up xD since here i will mainly be in Career and Learning. Or make scripts with full eg ...pull_full alias.
